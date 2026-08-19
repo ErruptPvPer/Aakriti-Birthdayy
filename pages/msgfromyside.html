@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Private Message</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        :root {
+            --rose: #ff7ab6;
+            --violet: #a78bfa;
+            --text: #fff7fe;
+            --muted: #e9dcff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 18px;
+            background:
+                radial-gradient(circle at top left, rgba(255, 122, 182, 0.28), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.25), transparent 30%),
+                linear-gradient(135deg, #140b28 0%, #1f1238 55%, #0f0a1f 100%);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        body::before {
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 122, 182, 0.25);
+            top: 8%;
+            left: -50px;
+        }
+
+        body::after {
+            width: 260px;
+            height: 260px;
+            background: rgba(167, 139, 250, 0.2);
+            bottom: 8%;
+            right: -40px;
+        }
+
+        .private-page {
+            position: relative;
+            z-index: 1;
+            width: min(900px, 100%);
+        }
+
+        .message-card {
+            position: relative;
+            padding: 36px 28px 30px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(16px);
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.11), transparent 38%, rgba(255,255,255,0.04));
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #ffb7d5;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            color: #fff;
+        }
+
+        .heart-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 22px;
+            color: #ffd4eb;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .heart-line::before,
+        .heart-line::after {
+            content: '♡';
+            color: var(--rose);
+            font-size: 1.1rem;
+        }
+
+        .message-text {
+            color: var(--muted);
+            font-size: 1.03rem;
+            line-height: 1.9;
+            margin: 0 0 16px;
+        }
+
+        .message-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .signature {
+            margin-top: 24px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffd166;
+        }
+
+        .actions {
+            margin-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--rose), #ff95c0);
+            color: white;
+            box-shadow: 0 16px 32px rgba(255, 122, 182, 0.3);
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.14);
+            color: var(--text);
+        }
+
+        @media (max-width: 640px) {
+            .message-card {
+                padding: 28px 20px 24px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="private-page" id="privateMessageContent" style="display: none;">
+        <section class="message-card">
+            <p class="eyebrow">For My Aakriti</p>
+            <h1>Happy Birthday, Aakriti</h1>
+            <div class="heart-line">Especially i wrote it for you</div>
+
+            <div class="message-grid">
+                <p class="message-text">
+                    Namaskar Devi jii ❤️, Aaja timro janamdin ra timlai dherai dherai subhakamana xa. Aafno jiwan ma dherai aagadi badhnu, sadhai ramro kaam garnu.
+                    Timle gareko sabai kaam safal hos, kaile pani timro kaam haru bifal nahos. Aunty & Uncle lai sadhai proud feel garau nu ❤️.
+                </p>
+
+                <p class="message-text">
+                    Idk, hamro yo bonding yeti xito kasari vayo, tara jasari vayeni timi sangai xau teti vaye pugyo. Aaba ta malai ni lagxa i hope hami ali xito veteko vaye ali dherai time spend garthye hola, timle deserve garne treat garthye hola, timlai feel garau thye hola ki kta manxe haru ni yeti maan ko safa ra ramro ra mayalu hune raixan... Jo ki paxi gayera timlai koi sanga trust issue na hos.
+                </p>
+
+                <p class="message-text">
+                    Bas aaba timlai sadhai khushi vayeko herna maan xa, syd hami bole pani... na bole pani ❤️ Timi chinta na gara yo kunai love confession hoina hai 😄 kina ki ma aafai lai issue ra move on ko problem xa until i get true one.
+                    ani yo msg chai timro lagi thikka timro janmadin vanda 23hrs aagadi lekhira xu.. Mero life ma limited moments xan jasma actually ma happy xu ani tyo limited ma timi sanga ko time spend ni parxa... Timi jati khera sad feel garxau malai samjhinu, ma timro hune xu tara yesko mtlb yo hoina mero value lai na birsinu ani aarko aasha rakhxu... Aafulai heavy feel vako bela i hope timi pani sangai kura sune dine xau 🤧
+                    So paragraph dherai lamo vayo 😄 timlai padhna jhyau lagna sakxa... Anyway Once again Happy Birthday to you pyari Devi Aakriti ❤️
+                </p>
+            </div>
+
+            <p class="signature">From your BestFriend & from my hearts ❤️</p>
+
+            <div class="actions">
+                <a class="btn primary" href="../index.html">feri firta jau hai</a>
+                <a class="btn secondary" href="../pages/abouther.html">Timro tariff hanna jau</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('privateMessageContent');
+            const isUnlocked = sessionStorage.getItem('privateMessageUnlocked') === 'true';
+
+            if (!isUnlocked) {
+                window.location.href = 'passpagebeforeprivatemsg.html';
+                return;
+            }
+
+            if (content) {
+                content.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
