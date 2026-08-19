@@ -1,0 +1,33 @@
+.page-lastwish {
+    background: linear-gradient(180deg, #120a22 0%, #18102d 100%);
+}
+
+.wish-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.wish-card::before,
+.wish-card::after {
+    content: "💖";
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.18;
+    animation: float 5s ease-in-out infinite;
+}
+
+.wish-card::before {
+    left: 14%;
+    top: 10%;
+}
+
+.wish-card::after {
+    right: 12%;
+    bottom: 12%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}

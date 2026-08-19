@@ -1,0 +1,35 @@
+.page-question {
+    background: linear-gradient(180deg, #120b24 0%, #1a1138 100%);
+}
+
+.question-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.question-box::before {
+    content: "";
+    position: absolute;
+    inset: -60% auto auto -20%;
+    width: 220px;
+    height: 220px;
+    background: rgba(255, 105, 180, 0.12);
+    filter: blur(18px);
+    border-radius: 50%;
+}
+
+.question-box::after {
+    content: "";
+    position: absolute;
+    inset: auto -12% -55% auto;
+    width: 210px;
+    height: 210px;
+    background: rgba(167, 139, 250, 0.1);
+    filter: blur(18px);
+    border-radius: 50%;
+}
+
+.answer-row {
+    position: relative;
+    z-index: 1;
+}

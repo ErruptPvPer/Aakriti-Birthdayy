@@ -1,0 +1,19 @@
+.page-about {
+    background: linear-gradient(180deg, #120b24 0%, #180f31 100%);
+}
+
+.story-card {
+    margin-top: 18px;
+}
+
+.story-card h1 {
+    max-width: 850px;
+}
+
+.traits-grid {
+    margin-top: 28px;
+}
+
+.timeline {
+    margin-top: 30px;
+}
