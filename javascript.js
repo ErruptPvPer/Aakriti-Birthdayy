@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const targetDate = new Date('2026-08-21T00:00:00');
+    const targetDate = new Date('2026-08-22T00:00:00');
 
     const dayEl = document.getElementById('days');
     const hourEl = document.getElementById('hours');
