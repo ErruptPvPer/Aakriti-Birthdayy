@@ -1,0 +1,21 @@
+# Aakriti Birthday Website
+
+This birthday website is designed around 5 pages:
+- index.html — main landing page
+- pages/abouther.html — about her story
+- pages/photos.html — photo gallery page
+- pages/lovequestion.html — romantic question page
+- pages/lastwish.html — final birthday wish page
+
+Important birthday detail:
+- Birthday date: 2083/05/05 B.S.
+
+The project includes:
+- HTML structure for each page
+- CSS styling and page-specific layouts
+- JavaScript for the birthday countdown and interactive love question
+
+How to view:
+1. Open index.html in the browser, or
+2. Run: python -m http.server
+3. Then visit: http://localhost:8000
